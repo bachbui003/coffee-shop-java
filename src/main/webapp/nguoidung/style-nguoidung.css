@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.container-menu {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo img {
+	height: 80px;
+	width: 180px;
+	margin-left: 70px;
+	margin-right: 550px;
+}
+
+.menu .luachon span {
+    margin-right: 20px; 
+}
+
+.menu .luachon a {
+    text-decoration: none; 
+    font-size: 20px;
+    color: #a0522d; 
+    position: relative;
+}
+
+.menu .luachon a:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px; 
+    background-color: #a0522d; 
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.menu .luachon a:hover {
+    color: #a0522d; 
+}
+
