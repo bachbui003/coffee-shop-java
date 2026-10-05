@@ -1,0 +1,28 @@
+# Development deployment. Free PostgreSQL has a provider expiry; use a durable plan for a real shop.
+services:
+  - type: web
+    name: moc-coffee-shop
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: COFFEE_DB_URL
+        sync: false
+      - key: COFFEE_DB_USER
+        fromDatabase:
+          name: moc-coffee-postgres
+          property: user
+      - key: COFFEE_DB_PASSWORD
+        fromDatabase:
+          name: moc-coffee-postgres
+          property: password
+      - key: COFFEE_ADMIN_USER
+        value: admin
+      - key: COFFEE_ADMIN_HASH
+        sync: false
+databases:
+  - name: moc-coffee-postgres
+    databaseName: coffee_shop
+    user: coffee_shop
+    plan: free
